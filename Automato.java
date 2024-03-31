@@ -37,23 +37,23 @@ public class Automato {
             int cont = 1;
             convertion.praticalMethod(newStateInicial, automato.getAlphabet(), listStates, listNewStates, cont);
             arquivo.gravarAutomato(listNewStates);
-            for (NewState newState2 : listNewStates) {
-                System.out.print("\nlabel: " + newState2.getLabel());
-                System.out.print("\tid: " + newState2.getId());
-                System.out.print("\tname: " + newState2.getName());
-                System.out.print("\tisFinal: " + newState2.getIsFinal());
+            // for (NewState newState2 : listNewStates) {
+            //     System.out.print("\nlabel: " + newState2.getLabel());
+            //     System.out.print("\tid: " + newState2.getId());
+            //     System.out.print("\tname: " + newState2.getName());
+            //     System.out.print("\tisFinal: " + newState2.getIsFinal());
             
                 
-                    for (Transition trans : newState2.getList()) {
-                        System.out.print("\ngetFrom: "+trans.getFrom());
-                        System.out.print("\tgetread: "+trans.getRead());
-                        System.out.print("\tgetTo: "+trans.getTo());
-                    }
+            //         for (State trans : newState2.getListState()) {
+            //             System.out.print("\nid: "+trans.getId()+"\t");
+            //             // System.out.print("\tgetread: "+trans.getRead());
+            //             // System.out.print("\tgetTo: "+trans.getTo());
+            //         }
                     
                 
-                // System.out.println("id" + newState2.getId());
-                // System.out.println("name" + newState2.getName());
-            }
+            //     // System.out.println("id" + newState2.getId());
+            //     // System.out.println("name" + newState2.getName());
+            // }
        
             //listStates.get(listStates.indexOf(automato.retornaInicial(listStates)));
 

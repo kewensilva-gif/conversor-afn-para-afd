@@ -2,6 +2,7 @@ package utilities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -74,10 +75,7 @@ public class Convertion {
         for (String letter : alphabet) {
             NewState stateTemp = this.createNewState(stateInitial, listStates, cont, letter);
             if(stateTemp != null){
-                // verifica se já está na lista
-                // System.out.println("new");
-                // System.out.println("state");
-            
+
                 if (!insertTransitionOrNewState(listNewStates, stateTemp, letter, stateInitial)) {
                     if(stateInitial.getList() != null){
                         stateInitial.setList(new Transition(stateInitial.getId(), stateTemp.getId(), letter));
@@ -85,7 +83,7 @@ public class Convertion {
                         stateInitial.setList(new ArrayList<>());
                         stateInitial.setList(new Transition(stateInitial.getId(), stateTemp.getId(), letter));
                     }
-                    //listNewStates.add(stateTemp);
+              
                     cont++;
                     praticalMethod(stateTemp, alphabet, listStates, listNewStates, cont);
                 } 
@@ -114,7 +112,14 @@ public class Convertion {
     public String ordenationLabel(String letters) {
         String[] numbers = letters.split("");
         Arrays.sort(numbers);
-        String lettersOrd = String.join("", numbers);
+        //Impede que tenham numeros repetidos na label
+        Set<String> numberSet = new HashSet<>();
+        for (String number : numbers) {
+            numberSet.add(number);
+        }
+
+        
+        String lettersOrd = String.join("", numberSet);
 
         return lettersOrd;
     }

@@ -251,18 +251,20 @@ public class Arquivo {
                 }
 
                 for (State estado : novosEstados) {
-                    for (Transition transicao : estado.getList()) {
-                        Element transition = d.createElement("transition");
-                        Element from = d.createElement("from");
-                        Element to = d.createElement("to");
-                        Element read = d.createElement("read");
-                        from.appendChild(d.createTextNode(Integer.toString(transicao.getFrom())));
-                        to.appendChild(d.createTextNode(Integer.toString(transicao.getTo())));
-                        read.appendChild(d.createTextNode(transicao.getRead()));
-                        transition.appendChild(from);
-                        transition.appendChild(to);
-                        transition.appendChild(read);
-                        automato.appendChild(transition);
+                    if(estado.getList() !=null){
+                        for (Transition transicao : estado.getList()) {
+                            Element transition = d.createElement("transition");
+                            Element from = d.createElement("from");
+                            Element to = d.createElement("to");
+                            Element read = d.createElement("read");
+                            from.appendChild(d.createTextNode(Integer.toString(transicao.getFrom())));
+                            to.appendChild(d.createTextNode(Integer.toString(transicao.getTo())));
+                            read.appendChild(d.createTextNode(transicao.getRead()));
+                            transition.appendChild(from);
+                            transition.appendChild(to);
+                            transition.appendChild(read);
+                            automato.appendChild(transition);
+                        }
                     }
                     
                 }
